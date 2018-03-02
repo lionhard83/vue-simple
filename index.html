@@ -1,0 +1,28 @@
+<div id='app'>
+    <p>{{token}}</p>
+    <input v-model='token'></input>
+    <button @click='loadUsers'> Load Users</button>
+    <p>Lista id users</p>
+    <ol>
+        <li v-for='user in users' v-if='token!=user.id'>{{user.name}}
+            <button @click='sendRequest(user.id)'>Send request</button>
+        </li>
+
+    </ol>
+    <br>
+
+    <button @click='loadPosts'>Load Posts</button>
+    <p>Lista id posts</p>
+    <ol>
+        <li v-for='post in posts'>{{post.title}}</li>
+    </ol>
+
+
+    <p>Create new post</p>
+    <input v-model='post.title'></input>
+    <p>{{post}}</p>
+    <button @click='savePost'>Save Post</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource"></script>
+<script src="./index.js"></script>
